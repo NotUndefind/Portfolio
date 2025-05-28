@@ -13,6 +13,10 @@ export const metadata: Metadata = {
 	keywords: ["développeur", "full stack", "react", "next.js", "portfolio"],
 	authors: [{ name: "Jules Bourin" }],
 	creator: "Jules Bourin",
+	icons: {
+		icon: "/favicon.svg",
+		apple: "/apple-touch-icon.png",
+	},
 	openGraph: {
 		type: "website",
 		locale: "fr_FR",
