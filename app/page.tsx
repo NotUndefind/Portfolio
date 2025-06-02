@@ -23,7 +23,7 @@ export default function Portfolio() {
 				{/* Trigger pour mobile */}
 				<div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-2 border-b bg-background/80 backdrop-blur-md px-4 md:hidden">
 					<SidebarTrigger className="-ml-1" />
-					<div className="text-lg font-semibold">Alex Johnson</div>
+					<div className="text-lg font-semibold">Jules Bourin</div>
 				</div>
 
 				{/* Contenu principal */}
