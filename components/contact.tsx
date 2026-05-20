@@ -1,207 +1,67 @@
-"use client";
-
-import type React from "react";
-import { useState } from "react";
-import emailjs from "@emailjs/browser";
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { toast } from "sonner";
+function ArrowIcon() {
+	return (
+		<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+			<path d="M2 10 L10 2 M4 2 H10 V8" />
+		</svg>
+	);
+}
 
 export function Contact() {
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		subject: "",
-		message: "",
-	});
-	const [isLoading, setIsLoading] = useState(false);
-
-	const handleSubmit = async (e: React.FormEvent) => {
-		e.preventDefault();
-		setIsLoading(true);
-
-		try {
-			await emailjs.send(
-				"service_l9d9uzb", // Remplacez par votre Service ID
-				"template_47ikpaq", // Remplacez par votre Template ID
-				{
-					name: formData.name,
-					email: formData.email,
-					title: formData.subject,
-				},
-				"Mt7fnUzLnrJ2ByHDy" // Remplacez par votre Public Key
-			);
-
-			toast.success("Message envoyé avec succès !");
-			setFormData({ name: "", email: "", subject: "", message: "" });
-		} catch (error) {
-			console.error("Erreur lors de l'envoi:", error);
-			toast.error("Une erreur est survenue lors de l'envoi du message.");
-		} finally {
-			setIsLoading(false);
-		}
-	};
-
-	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-	) => {
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
-		});
-	};
-
 	return (
-		<section
-			id="contact"
-			className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30"
-		>
-			<div className="max-w-6xl mx-auto">
-				<h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-					Restons en Contact
-				</h2>
-				<p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-					Vous avez un projet en tête ? Une question ? Ou simplement
-					envie de discuter ? N&apos;hésitez pas à me contacter !
-				</p>
+		<section id="contact" className="section contact">
+			<span className="section-aura cr lg pale" />
+			<span className="section-aura cl lg warm" />
+			<span className="section-aura ct xl deep" />
+			<span className="section-aura cb sm cool" />
+			<span className="section-aura mid pale" />
 
-				<div className="grid lg:grid-cols-2 gap-12">
-					<div className="space-y-8">
-						<div>
-							<h3 className="text-2xl font-semibold mb-6">
-								Travaillons ensemble
-							</h3>
-							<p className="text-muted-foreground mb-8 leading-relaxed">
-								Je suis toujours intéressé par de nouvelles
-								opportunités et des projets passionnants. Que
-								vous ayez une question ou que vous souhaitiez
-								simplement dire bonjour, n&apos;hésitez pas à me
-								contacter !
-							</p>
-						</div>
+			<div className="section-deco" aria-hidden="true">
+				<div className="deco-grid" style={{ top: "140px", bottom: "140px", left: 0, right: 0 }} />
+				<div className="deco-watermark solid" style={{ top: "50%", left: "50%", transform: "translate(-50%,-58%)", fontSize: "clamp(360px,46vw,720px)" }}>&amp;</div>
+				<div className="deco-arc" style={{ top: "50%", left: "50%", width: "640px", height: "640px", transform: "translate(-50%,-50%)" }} />
+				<div className="deco-arc dashed" style={{ top: "50%", left: "50%", width: "880px", height: "880px", transform: "translate(-50%,-50%)" }} />
+				<div className="deco-edge" style={{ top: "240px", left: "18px" }}>Coordonnées · 04</div>
+				<div className="deco-edge" style={{ bottom: "240px", right: "18px", transform: "rotate(0deg)" }}>Reims&nbsp;·&nbsp;FR&nbsp;·&nbsp;CET</div>
+				<div className="deco-cross" style={{ top: "160px", left: "48px" }} />
+				<div className="deco-cross" style={{ top: "160px", right: "48px" }} />
+				<div className="deco-cross" style={{ bottom: "160px", left: "48px" }} />
+				<div className="deco-cross" style={{ bottom: "160px", right: "48px" }} />
+				<div className="deco-rule-label" style={{ top: "170px", left: "50%", transform: "translateX(-50%)" }}>— fin de page —</div>
+				<div className="deco-rule" style={{ top: "182px", left: "calc(50% - 130px)", width: "60px" }} />
+				<div className="deco-rule" style={{ top: "182px", left: "calc(50% + 70px)", width: "60px" }} />
+			</div>
 
-						<div className="space-y-6">
-							<div className="flex items-center space-x-4 p-4 bg-background rounded-lg border">
-								<div className="flex-shrink-0">
-									<Mail className="h-6 w-6 text-primary" />
-								</div>
-								<div>
-									<div className="font-medium">Email</div>
-									<div className="text-muted-foreground">
-										<a href="mailto:julesbourin@gmail.com">
-											julesbourin@gmail.com
-										</a>
-									</div>
-								</div>
-							</div>
+			<div className="wrap">
+				<header className="section-head">
+					<span className="index reveal">05 — Prenons contact</span>
+					<h2 className="reveal d1">on en <span className="em">parle ?</span></h2>
+					<p className="sub reveal d2">Disponible pour une alternance dans l&apos;IoT et la domotique à partir de 2026. Mission, projet, ou juste un café — j&apos;écris en général dans la journée.</p>
+				</header>
 
-							<div className="flex items-center space-x-4 p-4 bg-background rounded-lg border">
-								<div className="flex-shrink-0">
-									<Phone className="h-6 w-6 text-primary" />
-								</div>
-								<div>
-									<div className="font-medium">Téléphone</div>
-									<div className="text-muted-foreground">
-										<a href="tel:+33784712761">
-											+33 7 84 71 27 61
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<div className="flex items-center space-x-4 p-4 bg-background rounded-lg border">
-								<div className="flex-shrink-0">
-									<MapPin className="h-6 w-6 text-primary" />
-								</div>
-								<div>
-									<div className="font-medium">
-										Localisation
-									</div>
-									<div className="text-muted-foreground">
-										Reims, France
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<Card className="shadow-lg">
-						<CardHeader>
-							<CardTitle>Envoyez-moi un message</CardTitle>
-							<CardDescription>
-								Remplissez le formulaire ci-dessous et je vous
-								répondrai dans les plus brefs délais.
-							</CardDescription>
-						</CardHeader>
-						<CardContent>
-							<form onSubmit={handleSubmit} className="space-y-4">
-								<div className="grid grid-cols-2 gap-4">
-									<div>
-										<Input
-											name="name"
-											placeholder="Votre nom"
-											value={formData.name}
-											onChange={handleChange}
-											required
-											disabled={isLoading}
-										/>
-									</div>
-									<div>
-										<Input
-											name="email"
-											type="email"
-											placeholder="Votre email"
-											value={formData.email}
-											onChange={handleChange}
-											required
-											disabled={isLoading}
-										/>
-									</div>
-								</div>
-								<div>
-									<Input
-										name="subject"
-										placeholder="Sujet"
-										value={formData.subject}
-										onChange={handleChange}
-										required
-										disabled={isLoading}
-									/>
-								</div>
-								<div>
-									<Textarea
-										name="message"
-										placeholder="Votre message"
-										rows={5}
-										value={formData.message}
-										onChange={handleChange}
-										required
-										disabled={isLoading}
-									/>
-								</div>
-								<Button
-									type="submit"
-									className="w-full group"
-									disabled={isLoading}
-								>
-									<Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-									{isLoading
-										? "Envoi en cours..."
-										: "Envoyer le message"}
-								</Button>
-							</form>
-						</CardContent>
-					</Card>
+				<div className="contact-actions">
+					<a className="contact-btn reveal d1" href="mailto:julesbourin@gmail.com">
+						<span className="label"><small>écrire</small><span className="what">julesbourin@gmail.com</span></span>
+						<span className="arrow"><ArrowIcon /></span>
+					</a>
+					<a className="contact-btn reveal d2" href="https://github.com/NotUndefind" target="_blank" rel="noopener noreferrer">
+						<span className="label"><small>code</small><span className="what">GitHub / NotUndefind</span></span>
+						<span className="arrow"><ArrowIcon /></span>
+					</a>
+					<a className="contact-btn reveal d3" href="https://instagram.com/bourin.iot" target="_blank" rel="noopener noreferrer">
+						<span className="label"><small>suivre</small><span className="what">Instagram / @bourin.iot</span></span>
+						<span className="arrow"><ArrowIcon /></span>
+					</a>
+					<a className="contact-btn reveal d4" href="/JulesBourinCV.pdf" target="_blank" rel="noopener noreferrer">
+						<span className="label"><small>télécharger</small><span className="what">Mon CV</span></span>
+						<span className="arrow"><ArrowIcon /></span>
+					</a>
 				</div>
+
+				<footer className="footer">
+					<div className="available"><span className="led" /> Disponible — alternance 2026</div>
+					<div>© Jules Bourin · Reims</div>
+					<div>v.001 — MMXXVI</div>
+				</footer>
 			</div>
 		</section>
 	);

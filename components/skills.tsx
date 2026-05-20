@@ -1,78 +1,84 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+function Dots({ on }: { on: number }) {
+	return (
+		<span className="lvl">
+			{Array.from({ length: 5 }, (_, i) => (
+				<span key={i} className={`b${i < on ? " on" : ""}`} />
+			))}
+		</span>
+	);
+}
 
 export function Skills() {
-	const skillCategories = [
-		{
-			title: "Frontend",
-			skills: [
-				{ name: "TypeScript", level: 88 },
-				{ name: "React", level: 76 },
-				{ name: "Tailwind CSS", level: 85 },
-				{ name: "Next.js", level: 67 },
-				{ name: "Shadcn/UI", level: 82 },
-				{ name: "Chakra", level: 58 },
-			],
-		},
-		{
-			title: "Backend",
-			skills: [
-				{ name: "PHP", level: 74 },
-				{ name: "Laravel", level: 77 },
-				{ name: "Symfony", level: 61 },
-				{ name: "Node.js", level: 49 },
-				{ name: "Python", level: 30 },
-			],
-		},
-		{
-			title: "Outils & Autres",
-			skills: [
-				{ name: "Git", level: 85 },
-				{ name: "Docker", level: 75 },
-				{ name: "Vercel", level: 87 },
-				{ name: "Figma", level: 85 },
-				{ name: "Cursor", level: 82 },
-			],
-		},
-	];
-
 	return (
-		<section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-			<div className="max-w-6xl mx-auto">
-				<h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-					Compétences & Technologies
-				</h2>
-				<div className="grid lg:grid-cols-3 gap-8">
-					{skillCategories.map((category, index) => (
-						<Card
-							key={index}
-							className="hover:shadow-lg transition-shadow duration-300"
-						>
-							<CardHeader>
-								<CardTitle className="text-center text-xl">
-									{category.title}
-								</CardTitle>
-							</CardHeader>
-							<CardContent className="space-y-4">
-								{category.skills.map((skill, skillIndex) => (
-									<div key={skillIndex} className="space-y-2">
-										<div className="flex justify-between items-center">
-											<span className="text-sm font-medium">
-												{skill.name}
-											</span>
-											<span className="text-xs text-muted-foreground">
-												{skill.level}%
-											</span>
-										</div>
-										<Progress
-											value={skill.level}
-											className="h-2"
-										/>
-									</div>
-								))}
-							</CardContent>
-						</Card>
-					))}
+		<section id="skills" className="section skills">
+			<span className="section-aura br lg" />
+			<span className="section-aura tl sm deep" />
+			<span className="section-aura cl pale" />
+			<span className="section-aura ct cool" />
+
+			<div className="section-deco" aria-hidden="true">
+				<div className="deco-grid dots" style={{ top: "160px", bottom: "160px", left: 0, right: 0 }} />
+				<div className="deco-watermark" style={{ top: "120px", right: "-1vw", fontSize: "clamp(260px,32vw,500px)" }}>savoir</div>
+				<div className="deco-edge" style={{ top: "220px", left: "18px" }}>Boîte&nbsp;à&nbsp;outils · 03</div>
+				<div className="deco-cross" style={{ top: "160px", left: "48px" }} />
+				<div className="deco-cross" style={{ top: "160px", right: "48px" }} />
+				<div className="deco-cross" style={{ bottom: "160px", left: "48px" }} />
+				<div className="deco-cross" style={{ bottom: "160px", right: "48px" }} />
+				<div className="deco-arc" style={{ top: "60%", left: "-280px", width: "560px", height: "560px" }} />
+				<div className="deco-arc dashed" style={{ top: "60%", left: "-360px", width: "720px", height: "720px" }} />
+				<div className="deco-rule-label" style={{ top: "170px", right: "78px" }}>III · MMXXVI</div>
+				<div className="deco-rule" style={{ top: "182px", right: "200px", width: "80px" }} />
+			</div>
+
+			<div className="wrap">
+				<header className="section-head">
+					<span className="index reveal">04 — Boîte à outils</span>
+					<h2 className="reveal d1">savoir <span className="em">faire</span></h2>
+				</header>
+
+				<div className="skills-grid">
+					<div className="skill-col reveal">
+						<h3>Web</h3>
+						<ul className="skill-list">
+							<li>TypeScript <Dots on={5} /></li>
+							<li>React <Dots on={4} /></li>
+							<li>Tailwind CSS <Dots on={5} /></li>
+							<li>Next.js <Dots on={4} /></li>
+							<li>Laravel / PHP <Dots on={4} /></li>
+							<li>Git &amp; Docker <Dots on={4} /></li>
+						</ul>
+					</div>
+					<div className="skill-col reveal d1">
+						<h3>IoT &amp; Infra</h3>
+						<ul className="skill-list">
+							<li>ESP32 / Tasmota <Dots on={3} /></li>
+							<li>MQTT / Mosquitto <Dots on={3} /></li>
+							<li>WLED <Dots on={3} /></li>
+							<li>Frigate <Dots on={2} /></li>
+							<li>Grafana / Traefik <Dots on={2} /></li>
+							<li>Linux / Self-hosting <Dots on={3} /></li>
+						</ul>
+					</div>
+					<div className="skill-col reveal d2">
+						<h3>atelier</h3>
+						<ul className="skill-list">
+							<li>Fusion 360 <Dots on={4} /></li>
+							<li>Impression 3D <Dots on={4} /></li>
+							<li>Électronique &amp; Arduino <Dots on={3} /></li>
+						</ul>
+					</div>
+				</div>
+
+				<div className="skills-tail">
+					<div className="langs reveal">
+						<h4>Langues</h4>
+						<div className="row"><span className="name">Français</span><span className="lev">Maternelle</span></div>
+						<div className="row"><span className="name">Anglais</span><span className="lev">C1 · Professionnel</span></div>
+						</div>
+					<div className="skills-quote reveal d1">
+						<div className="scr">Du web à <span className="em">l&apos;IoT</span></div>
+						<p>— On fait, on apprend, on perfectionne.</p>
+					</div>
 				</div>
 			</div>
 		</section>

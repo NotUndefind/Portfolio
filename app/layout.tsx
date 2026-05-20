@@ -1,37 +1,31 @@
 import type React from "react";
-import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
-import { Toaster } from "sonner";
-import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Jules Bourin - Développeur Full Stack",
+	title: "Jules Bourin — Développeur Web & IoT",
 	description:
-		"Portfolio de Jules Bourin, développeur Full Stack Junior passionné par la création d'expériences numériques modernes.",
-	keywords: ["développeur", "full stack", "react", "next.js", "portfolio"],
+		"Portfolio de Jules Bourin, développeur web en transition vers l'IoT et la domotique. Disponible pour une alternance en 2026.",
+	keywords: ["développeur web", "IoT", "domotique", "alternance", "Next.js", "ESP32", "Reims"],
 	authors: [{ name: "Jules Bourin" }],
 	creator: "Jules Bourin",
 	icons: {
 		icon: "/favicon.svg",
-		apple: "/apple-touch-icon.png",
 	},
 	openGraph: {
 		type: "website",
 		locale: "fr_FR",
 		url: "https://julesbourin.com",
-		title: "Jules Bourin - Développeur Full Stack",
+		title: "Jules Bourin — Développeur Web & IoT",
 		description:
-			"Portfolio de Jules Bourin, développeur Full Stack Junior passionné par la création d'expériences numériques modernes.",
-		siteName: "Portfolio de Jules Bourin",
+			"Développeur web en transition vers l'IoT et la domotique. Disponible pour une alternance en 2026.",
+		siteName: "Jules Bourin",
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Jules Bourin - Développeur Full Stack",
+		title: "Jules Bourin — Développeur Web & IoT",
 		description:
-			"Portfolio de Jules Bourin, développeur Full Stack Junior passionné par la création d'expériences numériques modernes.",
-		creator: "@julesbourin",
+			"Développeur web en transition vers l'IoT et la domotique. Disponible pour une alternance en 2026.",
 	},
 };
 
@@ -41,21 +35,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="fr" suppressHydrationWarning>
-			<body>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
-					<SidebarProvider>
-						<AppSidebar />
-						<main className="flex-1">{children}</main>
-						<Toaster richColors position="top-center" />
-					</SidebarProvider>
-				</ThemeProvider>
-			</body>
+		<html lang="fr">
+			<head>
+				<link rel="preconnect" href="https://fonts.googleapis.com" />
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+				<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Imperial+Script&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+			</head>
+			<body>{children}</body>
 		</html>
 	);
 }

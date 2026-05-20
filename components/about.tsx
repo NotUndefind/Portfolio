@@ -1,102 +1,71 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Code, Coffee, Lightbulb, Users, Zap, Heart } from "lucide-react";
+import Image from "next/image";
 
 export function About() {
-	const values = [
-		{
-			icon: Code,
-			title: "Code Propre",
-			description: "Écriture de code maintenable et évolutif",
-		},
-		{
-			icon: Lightbulb,
-			title: "Innovation",
-			description: "Toujours à l'affût des nouvelles technologies",
-		},
-		{
-			icon: Users,
-			title: "Collaboration",
-			description: "Travail efficace en équipe",
-		},
-		{
-			icon: Coffee,
-			title: "Persévérance",
-			description: "Déterminé à surmonter les défis",
-		},
-		{
-			icon: Zap,
-			title: "Performance",
-			description: "Optimisation et rapidité",
-		},
-		{
-			icon: Heart,
-			title: "Passion",
-			description: "Amoureux du code et du développement",
-		},
-	];
-
 	return (
-		<section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
-			<div className="max-w-6xl mx-auto">
-				<h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-					À Propos de Moi
-				</h2>
+		<section id="about" className="section about">
+			<span className="section-aura tl lg" />
+			<span className="section-aura cr pale" />
+			<span className="section-aura bl sm deep" />
+			<span className="section-aura midR warm" />
 
-				<div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-					<div className="space-y-6">
-						<p className="text-lg text-muted-foreground leading-relaxed">
-							Développeur web junior passionné par la technologie
-							et l&apos;innovation. Diplômé récemment, je me
-							spécialise dans le développement frontend et backend
-							avec un fort intérêt pour les technologies modernes.
+			<div className="section-deco" aria-hidden="true">
+				<div className="deco-grid" style={{ top: "120px", bottom: "120px", left: 0, right: 0 }} />
+				<div className="deco-watermark" style={{ top: "140px", right: "-2vw", fontSize: "clamp(260px,32vw,500px)" }}>01</div>
+				<div className="deco-edge" style={{ top: "200px", left: "18px" }}>À&nbsp;PROPOS · HETIC</div>
+				<div className="deco-cross" style={{ top: "180px", left: "48px" }} />
+				<div className="deco-cross" style={{ top: "180px", right: "48px" }} />
+				<div className="deco-cross" style={{ bottom: "180px", left: "48px" }} />
+				<div className="deco-cross" style={{ bottom: "180px", right: "48px" }} />
+				<div className="deco-rule" style={{ top: "182px", left: "78px", width: "80px" }} />
+				<div className="deco-rule" style={{ top: "182px", right: "78px", width: "80px" }} />
+				<div className="deco-rule-label" style={{ top: "170px", left: "78px" }}>A&nbsp;·&nbsp;01</div>
+				<div className="deco-rule-label" style={{ top: "170px", right: "78px" }}>49.2°&nbsp;N</div>
+				<div className="deco-arc dashed" style={{ bottom: "-200px", left: "50%", width: "520px", height: "520px", transform: "translateX(-50%)" }} />
+			</div>
+
+			<div className="wrap">
+				<header className="section-head">
+					<span className="index reveal">01 — À propos</span>
+					<h2 className="reveal d1">à <span className="em">propos</span></h2>
+				</header>
+
+				<div className="about-grid">
+					<div className="about-text">
+						<p className="reveal d1">
+							Je m&apos;appelle Jules, j&apos;ai 22 ans et je suis étudiant à <span className="accent-word">HETIC</span> Paris. C&apos;est au lycée, grâce à des profs passionnés, que j&apos;ai découvert la domotique et l&apos;automatisation — l&apos;idée de faire communiquer des objets du quotidien, de rendre un espace intelligent.
 						</p>
-						<p className="text-lg text-muted-foreground leading-relaxed">
-							Quand je ne code pas, vous me trouverez en train
-							d&apos;explorer de nouvelles technologies, de
-							contribuer à des projets open-source, ou de savourer
-							un bon café tout en réfléchissant à la prochaine
-							grande idée.
+						<p className="reveal d2">
+							J&apos;ai fait un détour par le développement web, et aujourd&apos;hui je reviens à ce qui m&apos;a toujours attiré. En ce moment je construis ma chambre connectée — éclairage automatique, caméra, tout piloté à distance.
 						</p>
-						<div className="grid grid-cols-2 gap-6 pt-4">
-							<div className="text-center p-4 bg-muted/50 rounded-lg">
-								<div className="text-3xl font-bold text-primary">
-									7+
-								</div>
-								<div className="text-sm text-muted-foreground">
-									Projets Réalisés
-								</div>
-							</div>
-							<div className="text-center p-4 bg-muted/50 rounded-lg">
-								<div className="text-3xl font-bold text-primary">
-									1+
-								</div>
-								<div className="text-sm text-muted-foreground">
-									Années d&apos;Expérience
-								</div>
-							</div>
-						</div>
+						<p className="reveal d3">
+							On fait, on apprend, on perfectionne. Vous pouvez suivre l&apos;aventure sur Instagram{" "}
+							<a href="https://instagram.com/bourin.iot" className="accent-word" target="_blank" rel="noopener noreferrer">@bourin.iot</a>
+						</p>
+						<div className="signature reveal d4">— Jules</div>
 					</div>
 
-					<div className="relative">
-						<div className="grid grid-cols-2 gap-4">
-							{values.map((value, index) => (
-								<Card
-									key={index}
-									className="hover:shadow-lg transition-shadow duration-300"
-								>
-									<CardContent className="p-6 text-center">
-										<value.icon className="h-8 w-8 mx-auto mb-4 text-primary" />
-										<h3 className="font-semibold mb-2">
-											{value.title}
-										</h3>
-										<p className="text-sm text-muted-foreground">
-											{value.description}
-										</p>
-									</CardContent>
-								</Card>
-							))}
+					<aside className="about-photo reveal d2">
+						<div className="photo-frame">
+							<Image
+								src="/About.jpeg"
+								alt="Jules Bourin"
+								fill
+								className="object-cover object-top"
+								sizes="(max-width: 768px) 100vw, 40vw"
+								priority
+							/>
 						</div>
-					</div>
+						<div className="photo-caption">
+							<span>F.01 — Reims, 2026</span>
+							<span>Portrait</span>
+						</div>
+					</aside>
+				</div>
+
+				<div className="about-stats">
+					<div className="stat reveal d1"><div className="v"><span className="num">2+</span></div><div className="k">Années de code</div></div>
+					<div className="stat reveal d2"><div className="v"><span className="num">1</span></div><div className="k">Projet IoT en cours</div></div>
+					<div className="stat reveal d3"><div className="v"><span className="ss">∞</span></div><div className="k">Curiosité</div></div>
 				</div>
 			</div>
 		</section>
